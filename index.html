@@ -3,36 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Catálogo de Canciones</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    #contenedor { display: flex; gap: 30px; }
-    #lista, #eventos { width: 40%; }
-    #visor { flex: 1; border: 1px solid #ccc; padding: 10px; }
-    .item { cursor: pointer; margin: 5px 0; padding: 5px; }
-    .item:hover { background: #f0f0f0; }
-    h2 { margin-top: 0; }
-  </style>
+  <!-- TailwindCSS desde CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>🎵 Catálogo de Canciones</h1>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-indigo-600 text-white p-6 shadow-lg">
+    <h1 class="text-3xl font-bold">🎵 Catálogo de Canciones</h1>
+    <p class="text-sm opacity-80">Busca, escucha y organiza canciones por eventos</p>
+  </header>
 
-  <input type="text" id="busqueda" placeholder="Buscar canción..." style="width:100%;padding:8px;">
+  <!-- Contenido principal -->
+  <main class="flex-1 p-6">
+    <!-- Barra de búsqueda -->
+    <div class="mb-6">
+      <input id="busqueda" type="text" placeholder="Buscar canción..."
+        class="w-full p-3 rounded-lg border border-gray-300 shadow focus:outline-none focus:ring-2 focus:ring-indigo-500">
+    </div>
 
-  <div id="contenedor">
-    <div>
-      <h2>Canciones</h2>
-      <div id="lista"></div>
+    <!-- Layout en 3 columnas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Lista canciones -->
+      <div class="bg-white p-4 rounded-xl shadow-md">
+        <h2 class="text-xl font-semibold mb-4 border-b pb-2">🎶 Canciones</h2>
+        <div id="lista" class="space-y-2"></div>
+      </div>
+
+      <!-- Lista eventos -->
+      <div class="bg-white p-4 rounded-xl shadow-md">
+        <h2 class="text-xl font-semibold mb-4 border-b pb-2">📅 Eventos</h2>
+        <div id="eventos" class="space-y-2"></div>
+      </div>
+
+      <!-- Visor -->
+      <div class="bg-white p-4 rounded-xl shadow-md col-span-1 md:col-span-1">
+        <h2 class="text-xl font-semibold mb-4 border-b pb-2">👁️ Vista</h2>
+        <div id="visor" class="text-gray-600">
+          <p>Selecciona una canción o evento para ver los detalles.</p>
+        </div>
+      </div>
     </div>
-    <div>
-      <h2>Eventos</h2>
-      <div id="eventos"></div>
-    </div>
-    <div id="visor">
-      <h2>Selecciona una canción</h2>
-    </div>
-  </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-200 text-center p-4 text-sm">
+    Creado con ❤️ usando GitHub Pages + TailwindCSS
+  </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
