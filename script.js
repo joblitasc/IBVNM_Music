@@ -61,6 +61,7 @@ function mostrarEvento(ev, data) {
     }
   });
 }
+
 function pantallaCompleta() {
   const iframe = document.getElementById("docFrame");
   if (iframe.requestFullscreen) {
@@ -88,4 +89,5 @@ document.getElementById("busqueda").addEventListener("input", async (e) => {
   renderLista(data.canciones, data);
   renderEventos(data.eventos, data);
 })();
+
 
