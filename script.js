@@ -20,13 +20,20 @@ function mostrarCancion(c) {
   visor.innerHTML = `
     <h3 class="text-lg font-bold mb-2">${c.titulo}</h3>
     <p class="text-sm mb-4"><b>Autor:</b> ${c.autor}</p>
-    <iframe src="${c.pdf}" class="w-full h-64 rounded-lg border" ></iframe>
+    <div class="relative">
+      <iframe id="docFrame" src="${c.pdf}" class="w-full h-64 rounded-lg border"></iframe>
+      <button onclick="pantallaCompleta()" 
+        class="absolute top-2 right-2 bg-indigo-600 text-white px-3 py-1 text-sm rounded-lg shadow hover:bg-indigo-700">
+        ⛶ Fullscreen
+      </button>
+    </div>
     <a href="${c.youtube}" target="_blank" 
        class="mt-3 inline-block bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600">
        🎥 Ver en YouTube
     </a>
   `;
 }
+
 
 function renderEventos(eventos, data) {
   const divEventos = document.getElementById("eventos");
@@ -54,6 +61,16 @@ function mostrarEvento(ev, data) {
     }
   });
 }
+function pantallaCompleta() {
+  const iframe = document.getElementById("docFrame");
+  if (iframe.requestFullscreen) {
+    iframe.requestFullscreen();
+  } else if (iframe.webkitRequestFullscreen) { // Safari
+    iframe.webkitRequestFullscreen();
+  } else if (iframe.msRequestFullscreen) { // IE/Edge antiguo
+    iframe.msRequestFullscreen();
+  }
+}
 
 document.getElementById("busqueda").addEventListener("input", async (e) => {
   const q = e.target.value.toLowerCase();
@@ -71,3 +88,4 @@ document.getElementById("busqueda").addEventListener("input", async (e) => {
   renderLista(data.canciones, data);
   renderEventos(data.eventos, data);
 })();
+
