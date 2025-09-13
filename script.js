@@ -8,7 +8,7 @@ function renderLista(canciones, data) {
   lista.innerHTML = "";
   canciones.forEach(c => {
     const item = document.createElement("div");
-    item.className = "item";
+    item.className = "p-3 bg-indigo-50 rounded-lg cursor-pointer hover:bg-indigo-100 transition";
     item.textContent = `${c.titulo} - ${c.autor}`;
     item.onclick = () => mostrarCancion(c);
     lista.appendChild(item);
@@ -18,10 +18,13 @@ function renderLista(canciones, data) {
 function mostrarCancion(c) {
   const visor = document.getElementById("visor");
   visor.innerHTML = `
-    <h2>${c.titulo}</h2>
-    <p><b>Autor:</b> ${c.autor}</p>
-    <iframe src="${c.pdf}" width="100%" height="400"></iframe><br>
-    <a href="${c.youtube}" target="_blank">🎥 Ver en YouTube</a>
+    <h3 class="text-lg font-bold mb-2">${c.titulo}</h3>
+    <p class="text-sm mb-4"><b>Autor:</b> ${c.autor}</p>
+    <iframe src="${c.pdf}" class="w-full h-64 rounded-lg border" ></iframe>
+    <a href="${c.youtube}" target="_blank" 
+       class="mt-3 inline-block bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600">
+       🎥 Ver en YouTube
+    </a>
   `;
 }
 
@@ -30,7 +33,7 @@ function renderEventos(eventos, data) {
   divEventos.innerHTML = "";
   eventos.forEach(ev => {
     const item = document.createElement("div");
-    item.className = "item";
+    item.className = "p-3 bg-green-50 rounded-lg cursor-pointer hover:bg-green-100 transition";
     item.innerHTML = `<b>${ev.fecha}</b> - ${ev.nombre}`;
     item.onclick = () => mostrarEvento(ev, data);
     divEventos.appendChild(item);
@@ -39,12 +42,12 @@ function renderEventos(eventos, data) {
 
 function mostrarEvento(ev, data) {
   const lista = document.getElementById("lista");
-  lista.innerHTML = `<h3>Canciones del evento: ${ev.nombre}</h3>`;
+  lista.innerHTML = `<h3 class="font-semibold text-indigo-700 mb-2">🎤 Canciones del evento: ${ev.nombre}</h3>`;
   ev.canciones.forEach(id => {
     const cancion = data.canciones.find(c => c.id === id);
     if (cancion) {
       const item = document.createElement("div");
-      item.className = "item";
+      item.className = "p-3 bg-indigo-50 rounded-lg cursor-pointer hover:bg-indigo-100 transition";
       item.textContent = `${cancion.titulo} - ${cancion.autor}`;
       item.onclick = () => mostrarCancion(cancion);
       lista.appendChild(item);
