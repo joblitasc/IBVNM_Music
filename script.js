@@ -21,26 +21,30 @@ function mostrarCancion(c) {
     <h3 class="text-lg font-bold mb-2">${c.titulo}</h3>
     <p class="text-sm mb-4"><b>Autor:</b> ${c.autor}</p>
 
-    <!-- Contenedor relativo -->
     <div class="relative">
-      <!-- Documento -->
       <iframe id="docFrame" src="${c.pdf}" 
         class="w-full h-64 rounded-lg border"></iframe>
 
-      <!-- Botón fullscreen -->
+      <!-- Botón entrar fullscreen -->
       <button onclick="pantallaCompleta()" 
         class="absolute top-2 right-2 bg-indigo-600 text-white px-3 py-1 text-xs rounded-lg shadow hover:bg-indigo-700 z-10">
         ⛶ Pantalla completa
       </button>
+
+      <!-- Botón salir fullscreen (oculto al inicio) -->
+      <button id="btnExitFs" onclick="salirPantallaCompleta()" 
+        class="hidden absolute top-2 right-36 bg-red-600 text-white px-3 py-1 text-xs rounded-lg shadow hover:bg-red-700 z-10">
+        ✖ Salir
+      </button>
     </div>
 
-    <!-- Enlace a YouTube -->
     <a href="${c.youtube}" target="_blank" 
        class="mt-3 inline-block bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600">
        🎥 Ver en YouTube
     </a>
   `;
 }
+
 
 
 
@@ -75,12 +79,34 @@ function pantallaCompleta() {
   const iframe = document.getElementById("docFrame");
   if (iframe.requestFullscreen) {
     iframe.requestFullscreen();
-  } else if (iframe.webkitRequestFullscreen) { // Safari
+  } else if (iframe.webkitRequestFullscreen) {
     iframe.webkitRequestFullscreen();
-  } else if (iframe.msRequestFullscreen) { // IE/Edge antiguo
+  } else if (iframe.msRequestFullscreen) {
     iframe.msRequestFullscreen();
   }
 }
+
+function salirPantallaCompleta() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+
+// Detecta cambios en modo fullscreen
+document.addEventListener("fullscreenchange", () => {
+  const btnExit = document.getElementById("btnExitFs");
+  if (!btnExit) return; // aún no se ha renderizado
+  if (document.fullscreenElement) {
+    btnExit.classList.remove("hidden"); // mostrar botón
+  } else {
+    btnExit.classList.add("hidden"); // ocultar botón
+  }
+});
+
 
 document.getElementById("busqueda").addEventListener("input", async (e) => {
   const q = e.target.value.toLowerCase();
@@ -98,6 +124,7 @@ document.getElementById("busqueda").addEventListener("input", async (e) => {
   renderLista(data.canciones, data);
   renderEventos(data.eventos, data);
 })();
+
 
 
 
