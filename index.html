@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo de Canciones</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #contenedor { display: flex; gap: 30px; }
+    #lista, #eventos { width: 40%; }
+    #visor { flex: 1; border: 1px solid #ccc; padding: 10px; }
+    .item { cursor: pointer; margin: 5px 0; padding: 5px; }
+    .item:hover { background: #f0f0f0; }
+    h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <h1>🎵 Catálogo de Canciones</h1>
+
+  <input type="text" id="busqueda" placeholder="Buscar canción..." style="width:100%;padding:8px;">
+
+  <div id="contenedor">
+    <div>
+      <h2>Canciones</h2>
+      <div id="lista"></div>
+    </div>
+    <div>
+      <h2>Eventos</h2>
+      <div id="eventos"></div>
+    </div>
+    <div id="visor">
+      <h2>Selecciona una canción</h2>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
