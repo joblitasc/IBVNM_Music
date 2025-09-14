@@ -1,37 +1,14 @@
-{
-  "canciones": [
-    {
-      "id": "c1",
-      "titulo": "Alabaré",
-      "autor": "Tradicional",
-      "pdf": "https://drive.google.com/file/d/ID_PDF1/preview",
-      "youtube": "https://www.youtube.com/watch?v=XXXXX"
-    },
-    {
-      "id": "c2",
-      "titulo": "Eres mi respirar",
-      "autor": "Michael W. Smith",
-      "pdf": "https://drive.google.com/file/d/ID_PDF2/preview",
-      "youtube": "https://www.youtube.com/watch?v=YYYYY"
-    },
-    {
-      "id": "c3",
-      "titulo": "Sublime Gracia",
-      "autor": "John Newton",
-      "pdf": "https://drive.google.com/file/d/ID_PDF3/preview",
-      "youtube": "https://www.youtube.com/watch?v=ZZZZZ"
-    }
-  ],
-  "eventos": [
-    {
-      "fecha": "2025-09-20",
-      "nombre": "Culto de Jóvenes",
-      "canciones": ["c1", "c2"]
-    },
-    {
-      "fecha": "2025-09-27",
-      "nombre": "Servicio General",
-      "canciones": ["c2", "c3"]
-    }
-  ]
-}
+[
+  {
+    "titulo": "Alabaré",
+    "autor": "Tradicional",
+    "pdf": "https://drive.google.com/uc?id=AAA",
+    "youtube": "https://youtu.be/AAA"
+  },
+  {
+    "titulo": "Eres Todopoderoso",
+    "autor": "Danilo Montero",
+    "pdf": "https://drive.google.com/uc?id=BBB",
+    "youtube": "https://youtu.be/BBB"
+  }
+]
