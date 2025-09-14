@@ -7,7 +7,7 @@ const FILE_EVENTOS  = "eventos.json";
 
 // Utilidad: GET archivo JSON desde GitHub
 async function getFile(path) {
-  const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${path}`;
+  const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/${path}`;
   const res = await fetch(url, { headers: { Authorization: `token ${TOKEN}` } });
   const data = await res.json();
   const content = JSON.parse(decodeURIComponent(escape(atob(data.content))));
@@ -16,7 +16,7 @@ async function getFile(path) {
 
 // Utilidad: PUT archivo JSON a GitHub
 async function saveFile(path, newData, sha) {
-  const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${path}`;
+  const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/${path}`;
   return fetch(url, {
     method: "PUT",
     headers: {
@@ -155,5 +155,6 @@ function pantallaCompleta() {
   else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
   else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
 }
+
 
 
