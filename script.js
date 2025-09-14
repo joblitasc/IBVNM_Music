@@ -1,7 +1,7 @@
 // 🔹 Configuración GitHub
-const GITHUB_USER = "usuario";     // 👈 cámbialo
-const GITHUB_REPO = "micatalogo";  // 👈 cámbialo
-const TOKEN       = "TU_TOKEN";    // 👈 cámbialo
+const GITHUB_USER = "joblitasc";     // 👈 cámbialo
+const GITHUB_REPO = "IBVNM_Music";  // 👈 cámbialo
+const TOKEN       = "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";    // 👈 cámbialo
 const FILE_CANCIONES = "catalogo.json";
 const FILE_EVENTOS  = "eventos.json";
 
@@ -155,3 +155,4 @@ function pantallaCompleta() {
   else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
   else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
 }
+
