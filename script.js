@@ -1,7 +1,7 @@
 // 🔹 Configuración GitHub
 const GITHUB_USER = "joblitasc";     // 👈 cámbialo
 const GITHUB_REPO = "IBVNM_Music";  // 👈 cámbialo
-const TOKEN       = "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";    // 👈 cámbialo
+const TOKEN       = "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";    // 👈 cámbialo
 const FILE_CANCIONES = "catalogo.json";
 const FILE_EVENTOS  = "eventos.json";
 
@@ -155,4 +155,5 @@ function pantallaCompleta() {
   else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
   else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
 }
+
 
